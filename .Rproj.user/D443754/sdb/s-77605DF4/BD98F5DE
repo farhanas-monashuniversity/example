@@ -1,0 +1,17 @@
+{
+    "contents" : "#' A Function to clean a single input string by removing punctuation and numbers and tokenizing it.\n#'\n#' @param str A single input string such as \"This is a cool function!\"\n#' @return A vector contain all valid tokens in the original input string\n#' @export\nClean_String <- function(str){\n  # Lowercase\n  temp <- tolower(str)\n  # Remove everything that is not a letter\n  temp <- stringr::str_replace_all(temp,\"[^a-zA-Z\\\\s]\", \" \")\n  # Shrink down to just one white space\n  temp <- stringr::str_replace_all(temp,\"[\\\\s]+\", \" \")\n  # Split it\n  temp <- stringr::str_split(temp, \" \")[[1]]\n  # Get rid of trailing \"\" if necessary\n  indexes <- which(temp == \"\")\n  if(length(indexes) > 0){\n    temp <- temp[-indexes]\n  }\n  return(temp)\n}\n",
+    "created" : 1464661819171.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2976497229",
+    "id" : "BD98F5DE",
+    "lastKnownWriteTime" : 1464661870,
+    "path" : "//ad.monash.edu/home/User059/farhanas/Desktop/project_developement/example/R/Clean_String.R",
+    "project_path" : "R/Clean_String.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
